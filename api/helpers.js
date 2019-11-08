@@ -6,3 +6,14 @@ module.exports.parameterise = function(object) {
     });
     return params;
 };
+
+module.exports.validate = function(object, type) {
+    switch(type) {
+        case 'Employee':
+            console.log(`${type} is valid`);
+            return (object.name && object.position && object.wage) ? true : false;
+            break;
+        default:
+            return false;
+    }
+}
