@@ -11,6 +11,9 @@ const midWare = [
 ];
 app.use(midWare);
 
+// Redirect to API
+app.all('/', (req, res, next) => res.redirect('/api'));
+
 // Routing
 const apiRouter = require('./api/api.js');
 app.use('/api', apiRouter);

@@ -3,7 +3,7 @@ const express = require('express');
 const apiRouter = express.Router();
 
 // Route: GET
-apiRouter.get('/', (req, res, next) => res.status(200).send('Hello from API'));
+apiRouter.get('/', (req, res, next) => res.status(200).json({ message: "Hi, from API."}));
 
 // Routes: /employees
 employeeRouter = require('./employees.js');
