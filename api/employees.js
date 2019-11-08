@@ -14,8 +14,12 @@ const helpers = require('./helpers.js');
 employeeRouter.param('employeeId', (req, res, next, employeeId) => {
     db.get(q.get.employee, employeeId, (err, data) => {
         if (err) next(err);
-        req.employee = data;
-        next();
+        if (!data) {
+            res.status(400).json({ error: "Not found"});
+        } else {
+            req.employee = data;
+            next();
+        }
     })
 });
 
