@@ -68,5 +68,13 @@ employeeRouter.put('/:employeeId', (req, res, next) => {
     }
 });
 
+// Route: DELETE
+employeeRouter.delete('/:employeeId', (req, res, next) => {
+    db.run(q.delete.employee, req.employee.id, function(err) {
+        if (err) next(err); 
+        res.status(201).json({ message: `Deleted Employee ${req.employee.id}`});
+    })
+});
+
 // Export for tests
 module.exports = employeeRouter;

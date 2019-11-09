@@ -16,6 +16,8 @@ module.exports = {
             position = $position,
             wage = $wage
             WHERE id = $id;`
+     },
+     delete: {
+         employee: `DELETE FROM Employee WHERE id = ?`
      }
-//   delete:
 }
