@@ -23,6 +23,10 @@ employeeRouter.param('employeeId', (req, res, next, employeeId) => {
     })
 });
 
+// Subroutes
+const timesheetsRouter = require('./timesheets.js');
+employeeRouter.use('/:employeeId/timesheets', timesheetsRouter);
+
 // Route: GET all
 employeeRouter.get('/', (req, res, next) => {
     db.all(q.list.employees, (err, data) => {
