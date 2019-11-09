@@ -74,7 +74,10 @@ employeeRouter.put('/:employeeId', (req, res, next) => {
 employeeRouter.delete('/:employeeId', (req, res, next) => {
     db.run(q.delete.employee, req.employee.id, function(err) {
         if (err) next(err); 
-        res.status(201).json({ message: `Deleted Employee ${req.employee.id}`});
+        db.get(q.get.employee, req.employee.id, (err, data) => {
+            if (err) next(err);
+            res.status(200).json({ employee: data});
+        })
     })
 });
 

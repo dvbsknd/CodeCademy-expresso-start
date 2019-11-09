@@ -18,6 +18,8 @@ module.exports = {
             WHERE id = $id;`
      },
      delete: {
-         employee: `DELETE FROM Employee WHERE id = ?`
+         employee: `UPDATE Employee
+            SET is_current_employee = 0
+            WHERE id = ?`
      }
 }
