@@ -15,7 +15,7 @@ employeeRouter.param('employeeId', (req, res, next, employeeId) => {
     db.get(q.get.employee, employeeId, (err, data) => {
         if (err) next(err);
         if (!data) {
-            res.status(400).json({ error: "Not found"});
+            res.status(404).json({ error: "Not found"});
         } else {
             req.employee = data;
             next();
