@@ -64,7 +64,7 @@ employeeRouter.put('/:employeeId', (req, res, next) => {
             if (err) next(err); 
             db.get(q.get.employee, req.employee.id, (err, data) => {
                 if (err) next(err);
-                res.status(201).json({ employee: data});
+                res.status(200).json({ employee: data});
             })
         })
     }
