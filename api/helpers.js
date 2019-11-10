@@ -15,6 +15,9 @@ module.exports.validate = function(object, type) {
         case 'Timesheet':
             return (object.hours && object.rate && object.date && object.employeeId) ? true : false;
             break;
+        case 'Menu':
+            return (object.title) ? true : false;
+            break;
         default:
             return false;
     }
