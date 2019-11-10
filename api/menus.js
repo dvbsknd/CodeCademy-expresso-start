@@ -24,8 +24,8 @@ menuRouter.param('menuId', (req, res, next, menuId) => {
 });
 
 // Subroutes
-// const menuItemsRouter = require('./menu-items.js');
-// menuRouter.use('/:menuId/menu-items', menuItemsRouter);
+const menuItemsRouter = require('./menu-items.js');
+menuRouter.use('/:menuId/menu-items', menuItemsRouter);
 
 // Route: GET all
 menuRouter.get('/', (req, res, next) => {

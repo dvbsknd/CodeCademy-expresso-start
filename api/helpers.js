@@ -13,10 +13,19 @@ module.exports.validate = function(object, type) {
             return (object.name && object.position && object.wage) ? true : false;
             break;
         case 'Timesheet':
-            return (object.hours && object.rate && object.date && object.employeeId) ? true : false;
+            return (object.hours 
+                && object.rate 
+                && object.date 
+                && object.employeeId) ? true : false;
             break;
         case 'Menu':
             return (object.title) ? true : false;
+            break;
+        case 'MenuItem':
+            return (object.name 
+                && object.description 
+                && object.inventory 
+                && object.price) ? true : false;
             break;
         default:
             return false;

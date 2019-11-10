@@ -65,10 +65,13 @@ timesheetsRouter.put('/:timesheetId', (req, res, next) => {
         queryParams = helpers.parameterise(update);
         db.run(q.update.timesheet, queryParams, function(err) {
             if (err) next(err); 
-            db.get(q.get.timesheet, req.timesheet.id, req.params.employeeId, (err, data) => {
-                if (err) next(err);
-                res.status(200).json({ timesheet: data});
-                console.log(req.timesheet.id);
+            db.get(
+                q.get.timesheet, 
+                req.timesheet.id, 
+                req.params.employeeId, 
+                (err, data) => {
+                    if (err) next(err);
+                    res.status(200).json({ timesheet: data});
             })
         })
     }
