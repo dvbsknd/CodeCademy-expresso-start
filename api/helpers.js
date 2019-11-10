@@ -10,8 +10,10 @@ module.exports.parameterise = function(object) {
 module.exports.validate = function(object, type) {
     switch(type) {
         case 'Employee':
-            console.log(`${type} is valid`);
             return (object.name && object.position && object.wage) ? true : false;
+            break;
+        case 'Timesheet':
+            return (object.hours && object.rate && object.date && object.employeeId) ? true : false;
             break;
         default:
             return false;

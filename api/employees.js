@@ -47,7 +47,7 @@ employeeRouter.post('/', (req, res, next) => {
         return res.status(400).json({ error: "Missing data."});
     } else {
         queryParams = helpers.parameterise(employee);
-        db.run(q.add.employees, queryParams, function(err) {
+        db.run(q.add.employee, queryParams, function(err) {
             if (err) next(err); 
             db.get(q.get.employee, this.lastID, (err, data) => {
                 res.status(201).json({ employee: data });

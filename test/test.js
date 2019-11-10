@@ -739,9 +739,9 @@ describe('DELETE /api/employees/:employeeId/timesheets/:timesheetId', function()
 
   it('should remove the timesheet with the specified ID from the database', function(done) {
     request(app)
-        .del('/api/employees/2/timesheets/1')
+        .del('/api/employees/2/timesheets/3')
         .then(function() {
-          testDb.get('SELECT * FROM timesheet WHERE timesheet.id = 1', function(error, timesheet) {
+          testDb.get('SELECT * FROM timesheet WHERE timesheet.id = 3', function(error, timesheet) {
             if (error) {
               throw new Error(error);
             }
@@ -753,7 +753,7 @@ describe('DELETE /api/employees/:employeeId/timesheets/:timesheetId', function()
 
   it('should return a 204 status code after timesheet delete', function() {
     return request(app)
-        .del('/api/employees/2/timesheets/1')
+        .del('/api/employees/2/timesheets/3')
         .expect(204);
   });
 
