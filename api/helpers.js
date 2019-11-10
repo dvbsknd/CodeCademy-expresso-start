@@ -22,8 +22,6 @@ module.exports.validate = function(object, type) {
             return (object.title) ? true : false;
             break;
         case 'MenuItem':
-            if (object.key) object.key = "ANUS";
-            console.log(object);
             return (object.name 
                 && object.description 
                 && object.inventory 
